@@ -21,3 +21,5 @@
   python3 setup.py install
   ```
 
+## 실행화면
+![esp32-boy-gui](https://github.com/chcbaram/esp32-boy-gui/assets/5537436/451f5622-396e-429f-8473-207ffe77a433)
