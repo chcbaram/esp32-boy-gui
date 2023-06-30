@@ -171,6 +171,7 @@ class Ui_Launcher(object):
         self.verticalLayout_6.setObjectName(u"verticalLayout_6")
         self.log = QPlainTextEdit(self.frame_2)
         self.log.setObjectName(u"log")
+        self.log.setLineWrapMode(QPlainTextEdit.NoWrap)
 
         self.verticalLayout_6.addWidget(self.log)
 

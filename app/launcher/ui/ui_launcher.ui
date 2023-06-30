@@ -267,7 +267,11 @@
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_6">
        <item>
-        <widget class="QPlainTextEdit" name="log"/>
+        <widget class="QPlainTextEdit" name="log">
+         <property name="lineWrapMode">
+          <enum>QPlainTextEdit::NoWrap</enum>
+         </property>
+        </widget>
        </item>
       </layout>
      </widget>
