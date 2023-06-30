@@ -10,7 +10,6 @@ from PySide6.QtWidgets import QApplication, QMainWindow, QMessageBox, QFileDialo
 from PySide6.QtCore import QFile, QProcess
 from PySide6.QtGui import *
 from app.launcher.lib.log import LogWidget
-from threading import Thread
 
 
 try:
@@ -98,7 +97,7 @@ class MainWindow(QMainWindow):
     self.updateFileList()
 
     self.btnScan()
-
+    
   def handle_stderr(self, process_obj):
     data = process_obj.readAllStandardError()
     stderr = bytes(data).decode("utf8")
@@ -114,7 +113,7 @@ class MainWindow(QMainWindow):
     for file in files:
       if file.endswith(".bin"):
         f = open(self.path_firm + file,'rb')
-        bin_header = int.from_bytes(f.read(1))
+        bin_header = int.from_bytes(f.read(1), byteorder='little')
         if bin_header == 0xE9:
           print(file)      
           self.file_list.append(self.path_firm + file)
