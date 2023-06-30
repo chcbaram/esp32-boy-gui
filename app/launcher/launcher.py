@@ -197,15 +197,15 @@ class MainWindow(QMainWindow):
       cmd_args += " 0xd000 " + self.path_ota  
       cmd_args += " " + cmd_addr + " " + cmd_file
 
-      process_obj.start("esptool.py", cmd_args.split(' '))      
+      process_obj.start(sys.executable, [app_path + "data/esptool_run.py", cmd_args]) 
       self.run_count += 1   
 
   def closeEvent(self, QCloseEvent):
 
-    if self.run_count > 0 and self.is_force_quit == False:
-      self.msg = QMessageBox.warning(self,'경고', '다른 프로그램이 실행중입니다.\n 먼저 종료해 주세요.')
-      QCloseEvent.ignore() 
-      return
+    # if self.run_count > 0 and self.is_force_quit == False:
+    #   self.msg = QMessageBox.warning(self,'경고', '다른 프로그램이 실행중입니다.\n 먼저 종료해 주세요.')
+    #   QCloseEvent.ignore() 
+    #   return
 
     if self.is_force_quit == True:
       self.re = QMessageBox.question(self, "강제 종료", "강제로 종료 하시겠습니까?",
